@@ -9,9 +9,9 @@
   },
   "scripts": {
     "build-css":
-      "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
+      "stylus --include ./src --include ./node_modules --compress -o src/ src/",
     "watch-css":
-      "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
+      "npm run build-css && stylus --include ./src --include ./node_modules src/ -o src/ --watch",
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "build-js": "react-scripts build && react-snapshot",
@@ -20,9 +20,9 @@
   },
   "devDependencies": {
     "flow-bin": "^0.62.0",
-    "node-sass-chokidar": "^0.0.3",
     "npm-run-all": "^4.1.2",
     "react-helmet": "^5.2.0",
-    "react-snapshot": "^1.3.0"
+    "react-snapshot": "^1.3.0",
+    "stylus": "^0.54.5"
   }
 }

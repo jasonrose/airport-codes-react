@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from "react";
+import "./Header.css";
 
 class Header extends Component<{}> {
   render() {
@@ -15,8 +16,8 @@ class Header extends Component<{}> {
           <input
             type="text"
             name="search"
-            autocomplete="off"
-            autocorrect="off"
+            autoComplete="off"
+            autoCorrect="off"
             placeholder="Find your airport"
           />
           <button className="clear" type="reset" />
