@@ -13,8 +13,10 @@
     "watch-css":
       "npm run build-css && stylus --include ./src --include ./node_modules src/ -o src/ --watch",
     "start-js": "react-scripts start",
+    "prestart": "bash concat.sh",
     "start": "npm-run-all -p watch-css start-js",
     "build-js": "react-scripts build && react-snapshot",
+    "prebuild": "bash concat.sh",
     "build": "npm-run-all build-css build-js",
     "eject": "react-scripts eject"
   },

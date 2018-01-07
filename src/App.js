@@ -4,18 +4,18 @@ import { type Airport } from "./AirportTypes";
 import AirportList from "./AirportList";
 import Header from "./Header";
 import "./App.css";
-import jsons from "./data/aal.json";
+import airports from "./concat";
 
-console.log(jsons);
-
-const airports: Array<Airport> = [{ code: "aal" }, { code: "aar" }];
+const airportList: Array<Airport> = Object.keys(airports).map(
+  key => airports[key]
+);
 
 class App extends Component<{}> {
   render() {
     return (
       <section>
         <Header />
-        <AirportList airports={airports} />
+        <AirportList airports={airportList} />
       </section>
     );
   }

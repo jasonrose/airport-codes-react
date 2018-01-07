@@ -17,6 +17,7 @@
 .env.production.local
 
 src/**/*.css
+src/concat.js
 
 npm-debug.log*
 yarn-debug.log*
