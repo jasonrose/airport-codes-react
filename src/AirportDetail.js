@@ -13,14 +13,15 @@ type Props = {|
 class AirportDetail extends Component<Props> {
   render() {
     return (
-      <section>
+      <section className="detail">
         <Helmet>
           <title>
             Airport Codes - {this.props.airport.id.toUpperCase()} -{" "}
             {this.props.airport.nameEnglish || this.props.airport.name}
           </title>
         </Helmet>
-        <article>
+        <Link className="overlay" to="/" />
+        <article className="detail-info">
           <nav>
             <Link to="/airports/random" className="random">
               Random Airport
@@ -31,13 +32,17 @@ class AirportDetail extends Component<Props> {
           </nav>
           <h1>{this.props.airport.id}</h1>
           <h2>{this.props.airport.name}</h2>
-          {this.props.airport.nameEnglish && (
-            <h3>{this.props.airport.nameEnglish}</h3>
-          )}
+          <h3>
+            <span className="city">{this.props.airport.city}</span>
+            <span className="state">{this.props.airport.stateShort}</span>
+            <span className="country">{this.props.airport.country}</span>
+          </h3>
           <ReactMarkdown source={this.props.airport.description} />
           <footer>Social</footer>
         </article>
-        <Link to="/">Airport Codes</Link>
+        <Link className="back" to="/">
+          Airport Codes
+        </Link>
         <footer>
           Photo by{" "}
           <a href={this.props.airport.imageCreditLink}>

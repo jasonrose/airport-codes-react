@@ -7,5 +7,7 @@ export type Airport = {|
   imageCredit: string,
   imageCreditLink: string,
   name: string,
-  nameEnglish?: string
+  nameEnglish?: string,
+  state?: string,
+  stateShort?: string
 |};

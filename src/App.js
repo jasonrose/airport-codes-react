@@ -27,6 +27,23 @@ const AirportDetailWrapper = ({ match }) => {
   );
 };
 
+const DefaultView = ({ location }) => {
+  if (location.hash.indexOf("#airport/") !== -1) {
+    return (
+      <Redirect
+        to={`/airports/${location.hash.split("/")[1]}.html`}
+        replace={true}
+      />
+    );
+  }
+  return (
+    <section>
+      <Header />
+      <AirportList airports={airportList} />
+    </section>
+  );
+};
+
 const RandomAirport = () => {
   const airport = airportList[Math.floor(Math.random() * airportList.length)];
   return <Redirect replace={true} to={`/airports/${airport.id}.html`} />;
@@ -34,20 +51,14 @@ const RandomAirport = () => {
 
 const App = () => (
   <Router>
-    <section>
-      <Header />
-      <Switch>
-        <Route path="/airports/random" component={() => <RandomAirport />} />
-        <Route
-          path="/airports/:id([a-z]+.html)"
-          component={AirportDetailWrapper}
-        />
-        <Route
-          path="/*"
-          component={() => <AirportList airports={airportList} />}
-        />
-      </Switch>
-    </section>
+    <Switch>
+      <Route path="/airports/random" component={() => <RandomAirport />} />
+      <Route
+        path="/airports/:id([a-z]+.html)"
+        component={AirportDetailWrapper}
+      />
+      <Route path="/*" component={DefaultView} />
+    </Switch>
   </Router>
 );
 
