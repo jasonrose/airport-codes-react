@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./Header.css";
 
 class Header extends Component<{}> {
@@ -8,10 +9,10 @@ class Header extends Component<{}> {
       <header>
         <nav>
           <h1>
-            <a href="/">Airport Codes</a>
-            <a className="nav-about" href="about.html">
+            <Link to="/">Airport Codes</Link>
+            <Link className="nav-about" to="/about.html">
               About
-            </a>
+            </Link>
           </h1>
           <input
             type="text"

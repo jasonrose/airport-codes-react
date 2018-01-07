@@ -8,10 +8,8 @@
     "react-scripts": "1.0.17"
   },
   "scripts": {
-    "build-css":
-      "stylus --include ./src --include ./node_modules --compress -o src/ src/",
-    "watch-css":
-      "npm run build-css && stylus --include ./src --include ./node_modules src/ -o src/ --watch",
+    "build-css": "stylus --include ./src --include ./node_modules --compress -o src/ src/",
+    "watch-css": "npm run build-css && stylus --include ./src --include ./node_modules src/ -o src/ --watch",
     "start-js": "react-scripts start",
     "prestart": "bash concat.sh",
     "start": "npm-run-all -p watch-css start-js",
@@ -24,6 +22,8 @@
     "flow-bin": "^0.62.0",
     "npm-run-all": "^4.1.2",
     "react-helmet": "^5.2.0",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
     "react-snapshot": "^1.3.0",
     "stylus": "^0.54.5"
   }
