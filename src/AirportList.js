@@ -14,7 +14,8 @@ class AirportList extends Component<Props> {
       <ul>
         {this.props.airports.map(airport => (
           <AirportCard
-            href={`airports/${airport.code}.html`}
+            key={airport.code}
+            href={`/airports/${airport.code}.html`}
             label={airport.code}
           />
         ))}

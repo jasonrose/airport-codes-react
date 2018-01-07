@@ -4,6 +4,9 @@ import { type Airport } from "./AirportTypes";
 import AirportList from "./AirportList";
 import Header from "./Header";
 import "./App.css";
+import jsons from "./data/aal.json";
+
+console.log(jsons);
 
 const airports: Array<Airport> = [{ code: "aal" }, { code: "aar" }];
 
