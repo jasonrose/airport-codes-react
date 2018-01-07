@@ -1,16 +1,24 @@
 // @flow
+import AirportCard from "./AirportCard";
+import { type Airport } from "./AirportTypes";
+import ContributeCard from "./ContributeCard";
 import React, { Component } from "react";
 
-class AirportList extends Component<{}> {
+type Props = {|
+  airports: Array<Airport>
+|};
+
+class AirportList extends Component<Props> {
   render() {
     return (
       <ul>
-        <li>
-          <a href="airport/aal.html">AAL</a>
-        </li>
-        <li>
-          <a href="contribute.html">Contribute an airport</a>
-        </li>
+        {this.props.airports.map(airport => (
+          <AirportCard
+            href={`airports/${airport.code}.html`}
+            label={airport.code}
+          />
+        ))}
+        <ContributeCard />
       </ul>
     );
   }
