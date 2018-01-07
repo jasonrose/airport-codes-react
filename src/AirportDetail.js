@@ -37,14 +37,34 @@ class AirportDetail extends Component<Props> {
             <span className="state">{this.props.airport.stateShort}</span>
             <span className="country">{this.props.airport.country}</span>
           </h3>
-          <ReactMarkdown source={this.props.airport.description} />
-          <footer>Social</footer>
+          <ReactMarkdown
+            className="description"
+            source={this.props.airport.description}
+          />
+          <footer className="social">
+            <a
+              className="twitter"
+              href={`https://twitter.com/intent/tweet?url=${
+                document.location.href
+              }&text=Making sense of those three-letter airport codes. ${this.props.airport.id.toUpperCase()}:`}
+            >
+              Share on <span>Twitter</span>
+            </a>
+            <a
+              className="facebook"
+              href={`https://www.facebook.com/sharer/sharer.php?u=${
+                document.location.href
+              }`}
+            >
+              Share on <span>facebook</span>
+            </a>
+          </footer>
         </article>
         <Link className="back" to="/">
           Airport Codes
         </Link>
-        <footer>
-          Photo by{" "}
+        <footer className="photo-credit">
+          photo by{" "}
           <a href={this.props.airport.imageCreditLink}>
             {this.props.airport.imageCredit}
           </a>
