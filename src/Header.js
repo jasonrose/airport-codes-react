@@ -6,8 +6,8 @@ import "./Header.css";
 class Header extends Component<{}> {
   render() {
     return (
-      <header>
-        <nav>
+      <header className="header-header">
+        <nav className="header-nav">
           <h1>
             <Link to="/">Airport Codes</Link>
             <Link className="nav-about" to="/about.html">

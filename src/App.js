@@ -27,19 +27,24 @@ const AirportDetailWrapper = ({ match }) => {
   );
 };
 
+const RandomAirport = () => {
+  const airport = airportList[Math.floor(Math.random() * airportList.length)];
+  return <Redirect replace={true} to={`/airports/${airport.id}.html`} />;
+};
+
 const App = () => (
   <Router>
     <section>
       <Header />
       <Switch>
-        <Route
-          exact
-          path="/"
-          component={() => <AirportList airports={airportList} />}
-        />
+        <Route path="/airports/random" component={() => <RandomAirport />} />
         <Route
           path="/airports/:id([a-z]+.html)"
           component={AirportDetailWrapper}
+        />
+        <Route
+          path="/*"
+          component={() => <AirportList airports={airportList} />}
         />
       </Switch>
     </section>

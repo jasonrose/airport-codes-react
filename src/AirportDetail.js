@@ -1,7 +1,10 @@
 // @flow
-import React, { Component } from "react";
 import { type Airport } from "./AirportTypes";
 import "./AirportDetail.css";
+import React, { Component } from "react";
+import { Helmet } from "react-helmet";
+import ReactMarkdown from "react-markdown";
+import { Link } from "react-router-dom";
 
 type Props = {|
   airport: Airport
@@ -9,7 +12,40 @@ type Props = {|
 
 class AirportDetail extends Component<Props> {
   render() {
-    return <div> {this.props.airport.id} </div>;
+    return (
+      <section>
+        <Helmet>
+          <title>
+            Airport Codes - {this.props.airport.id.toUpperCase()} -{" "}
+            {this.props.airport.nameEnglish || this.props.airport.name}
+          </title>
+        </Helmet>
+        <article>
+          <nav>
+            <Link to="/airports/random" className="random">
+              Random Airport
+            </Link>
+            <Link to="/" className="close-detail">
+              Close
+            </Link>
+          </nav>
+          <h1>{this.props.airport.id}</h1>
+          <h2>{this.props.airport.name}</h2>
+          {this.props.airport.nameEnglish && (
+            <h3>{this.props.airport.nameEnglish}</h3>
+          )}
+          <ReactMarkdown source={this.props.airport.description} />
+          <footer>Social</footer>
+        </article>
+        <Link to="/">Airport Codes</Link>
+        <footer>
+          Photo by{" "}
+          <a href={this.props.airport.imageCreditLink}>
+            {this.props.airport.imageCredit}
+          </a>
+        </footer>
+      </section>
+    );
   }
 }
 

@@ -1,20 +1,20 @@
 @import "variables"
 // Header and Search
 
-header,
-nav
+.header-header,
+.header-nav
   width: 100%
   height: 50px
   position: fixed
   top: 0
   left: 0
 
-header
+.header-header
   z-index: 5
   background: black
   box-shadow: 0 2px 3px black(.2)
 
-  nav
+  .header-nav
     padding: 10px 15px
     background: $blue
     {fadeIn}
@@ -79,7 +79,7 @@ header
 // Search collapse/expand for small screens
 @media (max-width: 500px)
 
-  header
+  .header-header
 
     .clear
       display: none
