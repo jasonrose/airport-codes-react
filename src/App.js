@@ -73,7 +73,7 @@ const RandomAirport = () => {
 };
 
 const App = () => (
-  <Router>
+  <Router basename={process.env.PUBLIC_URL}>
     <Switch>
       <Route path="/about.html" component={AboutWrapper} />
       <Route path="/airports/random" component={RandomAirport} />

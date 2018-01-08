@@ -1,6 +1,7 @@
 {
   "name": "airport-codes-react",
   "version": "0.1.0",
+  "homepage": "https://jasonrose.github.io/airport-codes-react",
   "private": true,
   "dependencies": {
     "react": "^16.2.0",
@@ -8,18 +9,23 @@
     "react-scripts": "1.0.17"
   },
   "scripts": {
-    "build-css": "stylus --include ./src --include ./node_modules --compress -o src/ src/",
-    "watch-css": "npm run build-css && stylus --include ./src --include ./node_modules src/ -o src/ --watch",
+    "build-css":
+      "stylus --include ./src --include ./node_modules --compress -o src/ src/",
+    "watch-css":
+      "npm run build-css && stylus --include ./src --include ./node_modules src/ -o src/ --watch",
     "start-js": "react-scripts start",
     "prestart": "bash concat.sh",
     "start": "npm-run-all -p watch-css start-js",
     "build-js": "react-scripts build && react-snapshot",
     "prebuild": "bash concat.sh",
     "build": "npm-run-all build-css build-js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
     "flow-bin": "^0.62.0",
+    "gh-pages": "^1.1.0",
     "npm-run-all": "^4.1.2",
     "react-helmet": "^5.2.0",
     "react-markdown": "^3.1.4",
